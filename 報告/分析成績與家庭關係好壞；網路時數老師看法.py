@@ -3,11 +3,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
+# 設置Matplotlib顯示中文字體
+plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei']  # 使用微軟正黑體
+plt.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
+
 # 檔案路徑
-file_path = 'D:\q\data1.csv'
-
-data = pd.read_csv(file_path, skipinitialspace=True)
-
+file_path = 'D:\\q\\data1.csv'
 
 data = pd.read_csv(file_path, skipinitialspace=True)
 
@@ -20,13 +21,13 @@ mean_family_relations = grades_and_family.mean(axis=1)
 
 # 將成績和家庭關係的平均值合併成一個 DataFrame
 combined_data = pd.concat([data['achieve'], mean_family_relations], axis=1)
-combined_data.columns = ['Grades', 'Mean Family Relations']
+combined_data.columns = ['成績', '家庭關係平均值']
 
 # 繪製盒狀圖
-sns.boxplot(x='Grades', y='Mean Family Relations', data=combined_data)
-plt.title('Relationship between Grades and Mean Family Relations')
-plt.xlabel('Grades')
-plt.ylabel('Mean Family Relations')
+sns.boxplot(x='成績', y='家庭關係平均值', data=combined_data)
+plt.title('成績與家庭關係平均值之間的關聯')
+plt.xlabel('成績')
+plt.ylabel('家庭關係平均值')
 plt.grid(True)
 plt.show()
 
@@ -39,15 +40,19 @@ mean_teacher_opinion = internet_hours_and_teacher_opinion.drop('nethour', axis=1
 
 # 繪製散點圖
 plt.scatter(data['nethour'], mean_teacher_opinion, marker='o')
-plt.title('Relationship between Internet Hours and Mean Teacher Opinion')
-plt.xlabel('Internet Hours')
-plt.ylabel('Mean Teacher Opinion')
+plt.title('網路使用時數與對老師的看法之間的關聯')
+plt.xlabel('網路使用時數')
+plt.ylabel('對老師的看法平均值')
 # 添加回歸線
 sns.regplot(x=data['nethour'], y=mean_teacher_opinion, scatter=False)
 
+# 手動設置x軸和y軸標籤
+plt.xlabel('網路使用時數')
+plt.ylabel('對老師的看法平均值')
+
 # 計算相關係數
 correlation_coefficient = np.corrcoef(data['nethour'], mean_teacher_opinion)[0, 1]
-print("Correlation Coefficient:", correlation_coefficient)
+print("相關係數:", correlation_coefficient)
 
 plt.grid(True)
 plt.show()
