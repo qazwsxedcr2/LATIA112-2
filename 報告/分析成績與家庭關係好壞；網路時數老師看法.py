@@ -8,7 +8,7 @@ plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei']  # 使用微軟正黑�
 plt.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
 
 # 檔案路徑
-file_path = 'D:\\q\\data1.csv'
+file_path = 'D:\q\data1.csv'
 
 data = pd.read_csv(file_path, skipinitialspace=True)
 
@@ -46,7 +46,6 @@ plt.ylabel('對老師的看法平均值')
 # 添加回歸線
 sns.regplot(x=data['nethour'], y=mean_teacher_opinion, scatter=False)
 
-# 手動設置x軸和y軸標籤
 plt.xlabel('網路使用時數')
 plt.ylabel('對老師的看法平均值')
 
