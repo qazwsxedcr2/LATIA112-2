@@ -53,9 +53,5 @@ sns.regplot(x=data['nethour'], y=mean_teacher_opinion, scatter=False)
 plt.xlabel('網路使用時數')
 plt.ylabel('對老師的看法平均值')
 
-# 計算相關係數
-correlation_coefficient = np.corrcoef(data['nethour'], mean_teacher_opinion)[0, 1]
-print("相關係數:", correlation_coefficient)
-
 plt.grid(True)
 plt.show()
