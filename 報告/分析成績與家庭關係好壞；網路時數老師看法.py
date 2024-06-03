@@ -14,7 +14,9 @@ data = pd.read_csv(file_path, skipinitialspace=True)
 
 # 成績與家庭關係之間的關聯
 # 需要的欄位
-grades_and_family = data[['achieve', 'parent1', 'parent2', 'parent3', 'parent4', 'parent5', 'parent6', 'parent7', 'parent8', 'parent9', 'parent10']]
+grades_and_family = data[['achieve', 'parent1', 'parent2',
+'parent3', 'parent4', 'parent5', 'parent6', 'parent7',
+'parent8', 'parent9', 'parent10']]
 
 # 計算家庭關係的平均值
 mean_family_relations = grades_and_family.mean(axis=1)
