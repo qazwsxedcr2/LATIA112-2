@@ -35,7 +35,9 @@ plt.show()
 
 # 網路使用時數與對老師的看法之間的關聯
 # 選擇需要的欄位
-internet_hours_and_teacher_opinion = data[['nethour', 'le1', 'id1', 'as2', 'an2', 'id2', 'id3', 'id4', 'id5', 'id6', 'id7', 'id8', 'id9', 'ac13', 'id15', 'id16', 'learn7', 'learn8']]
+internet_hours_and_teacher_opinion = data[['nethour', 'le1', 'id1', 'as2', 
+'an2', 'id2', 'id3', 'id4', 'id5', 'id6', 'id7', 'id8', 'id9', 'ac13', 
+'id15', 'id16', 'learn7', 'learn8']]
 
 # 計算對老師的看法的平均值
 mean_teacher_opinion = internet_hours_and_teacher_opinion.drop('nethour', axis=1).mean(axis=1)
